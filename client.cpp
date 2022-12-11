@@ -19,9 +19,23 @@ int main (){
            if (pid == -1){
                cout<<"error in the fork";
                exit(1);
-               }      //if the pid == -1 the means that the processes is not created and their is an error on the fork
+               }      //if the pid == -1 this  means that the processes is not created and their is an error on the fork
   
-
+ if (pid == 0){
+              int sock;
+              struct sockaddr_un cli_name;
+              int count;
+              int value;
+     sleep(3); //server process time 
+      cout<<"client is alive and establishing socket connection";
+               
+     
+     
+     
+     
+     
+     }    
+  
                 
   
   
