@@ -37,7 +37,7 @@ int value;
       exit(1);
     }
      for (count = 1; count <= SIM_LENGTH; count++) {
-         read(sock, &value, 4);
+         read(sock, &value, 4); //The read() function reads data previously written to a file
       cout<<"Client has received from socket" + value;
          
            cout<<"Exiting now";
