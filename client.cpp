@@ -13,7 +13,7 @@ using namespace std;
     #define SIM_LENGTH
 
 int main (){
-   pid_t pid;   // pid_t data type represents process IDs
+   pid_t pid;   // pid_t data type represents process IDs like an integers
   pid = fork(); //creating a new process by using fork and put the processes id on the pid
         
            if (pid == -1){
