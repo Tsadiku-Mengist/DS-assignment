@@ -10,7 +10,7 @@
 
 using namespace std;
     #define SIM_LENGTH 10
-    #define IP_ADDRESS "132.161.33.175"
+    #define IP_ADDRESS "xxx.xxx.xx.xxx"
     #define PORT 1227
 
 int main (){
