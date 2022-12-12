@@ -1,6 +1,5 @@
 # DS-assignment
-when i run the C code the clinet:
-    the client is alive and estabulishing socket connection 
+
 
 Hello Tsadiku. Thank you for your trail and go on doing. However, 
 
