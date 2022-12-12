@@ -46,7 +46,7 @@ int main (){
   
   for (count = 1; count <= SIM_LENGTH; count++)
     { write(connect_sock, &count, 4); // //The write() function shall attempt to write nbyte bytes from the buffer pointed to by buf to the file associated with the open file descriptor, fildes
-      cout<<"Server has written %d to socket.\n" + count;
+      cout<<"Server has written %d to socket." + count;
   
   
   close(connect_sock);  
