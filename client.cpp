@@ -38,7 +38,7 @@ int value;
     }
      for (count = 1; count <= SIM_LENGTH; count++) {
          read(sock, &value, 4);
-      cout<<"Client has received %d from socket" + value;
+      cout<<"Client has received from socket" + value;
          
            cout<<"Exiting now";
 
