@@ -20,6 +20,32 @@ int main (){
   size_t len; //It is the type of the result returned by sizeof operator.
   int count;
   
+   //following variable are to store the ip address and the hostname of a client
+int status; 
+struct addrinfo hints, *p; 
+struct addrinfo *servinfo; 
+char ipstr[INET_ADDRSTRLEN];
+char hostname[128];
+   
+  cout<<"please enter the ip address in like xxx.xxx.xxx.xxx";
+  cin>>&sockaddr_in *ip;//this takes in ipv4 address and inserts it into the struct addr_in
+  
+  //this is to check for hostname and ip address and if it fails this message is displayed
+if ((status = getaddrinfo(hostname, NULL, &hints, &servinfo)) == -1) { 
+    fprintf(stderr, "getaddrinfo error: %s\n", gai_strerror(status)); 
+    exit(1); 
+}    
+  //this code is used to fetch the ipv4 address of the connected client
+  for (p=servinfo; p!=NULL; p=p->ai_next) { 
+    struct in_addr  *addr;  
+    if (p->ai_family == AF_INET) { 
+        addr = &(ipv->sin_addr);  
+    } 
+        inet_ntop(p->ai_family, addr, ipstr, sizeof ipstr);//this changes the address in binary to a text format 
+  
+} 
+  
+  
     sock = socket(AF_INET, SOCK_STREAM, 0); 
   
   if (sock < 0) {
@@ -32,7 +58,7 @@ int main (){
   serv_name.sin_family = AF_INET;
   serv_name.sin_port = htons(PORT);
   
-   if (bind(sock, (struct sockaddr *)&serv_name, sizeof(serv_name)) < 0)
+   if (bind(sock, addr, sizeof(serv_name)) < 0)
     { perror ("Error naming channel");
       clean_up(1, &sock);
     }
@@ -42,7 +68,7 @@ int main (){
     listen(sock, 1);
   
    len = sizeof(serv_name);
-  connect_sock = accept(sock, (struct sockaddr *)&serv_name, &len);
+  connect_sock = accept(sock, addr, &len);
   
   for (count = 1; count <= SIM_LENGTH; count++)
     { write(connect_sock, &count, 4); // //The write() function shall attempt to write nbyte bytes from the buffer pointed to by buf to the file associated with the open file descriptor, fildes
