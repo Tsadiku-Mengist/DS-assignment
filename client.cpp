@@ -22,7 +22,6 @@ using namespace std;
 
 int main (){
 int sock;
-struct sockaddr_in cli_name;
 int count;
 int value;
     
@@ -63,12 +62,12 @@ if ((status = getaddrinfo(hostname, NULL, &hints, &servinfo)) == -1) {
          close(sock);
           exit(1);
     }
-    bzero(&cli_name, sizeof(cli_name));
+    bzero(&cli_name, sizeof(hostname));
     cli_name.sin_family = AF_INET;
     cli_name.sin_addr.s_addr = inet_addr(IP_ADDRESS);
     cli_name.sin_port = htons(PORT);
     
-     if (connect(sock, (struct sockaddr *)&cli_name, sizeof(cli_name)) < 0)
+     if (connect(sock,hostname, sizeof(hostname)) < 0)
     { perror ("Error establishing communications");
       close(sock);
       exit(1);
