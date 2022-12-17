@@ -7,10 +7,17 @@
 #include<sys/socket>
 #include<sys/un>
 #include <iostream>
+#include <stdlib.h>
+#include <unistd.h>
+#include <errno.h>
+#include <netdb.h>
+#include <sys/types.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#using namespace std;
 
 using namespace std;
     #define SIM_LENGTH 10
-    #define IP_ADDRESS "xxx.xxx.xx.xxx"
     #define PORT 1227
 
 int main (){
@@ -18,6 +25,36 @@ int sock;
 struct sockaddr_in cli_name;
 int count;
 int value;
+    
+ //following variable are to store the ip address and the hostname of a client
+int status; 
+struct addrinfo hints, *p; 
+struct addrinfo *servinfo; 
+char ipstr[INET_ADDRSTRLEN];
+char hostname[128];
+   
+  cin>>hostname[128];//this takes in a hostname and resolve it 
+    
+  //this is to check for hostname and ip address and if it fails this message is displayed
+if ((status = getaddrinfo(hostname, NULL, &hints, &servinfo)) == -1) { 
+    fprintf(stderr, "getaddrinfo error: %s\n", gai_strerror(status)); 
+    exit(1); 
+}    
+  //this code is used to fetch the ipv4 and the ipv6 address of the connected client
+  for (p=servinfo; p!=NULL; p=p->ai_next) { 
+    struct in_addr  *addr;  
+    if (p->ai_family == AF_INET) { 
+        struct sockaddr_in *ipv = (struct sockaddr_in *)p->ai_addr; 
+        addr = &(ipv->sin_addr);  
+    } 
+    else { 
+        struct sockaddr_in6 *ipv6 = (struct sockaddr_in6 *)p->ai_addr; 
+        addr = (struct in_addr *) &(ipv6->sin6_addr); 
+    }
+        inet_ntop(p->ai_family, addr, ipstr, sizeof ipstr); 
+  
+} 
+    
   cout<<"Client is alive and establishing socket connection.";
      
     sock = socket(AF_INET, SOCK_STREAM, 0);
