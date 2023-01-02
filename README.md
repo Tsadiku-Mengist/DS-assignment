@@ -43,6 +43,7 @@ Hello Tsadiku. Thank you for your trail and go on doing. However,
 =>it takes time and require deep understanding we are try it. if we will face with  a problem i will ask you. konw we are try to write the code on the file and then if we have more understanding on it correct it therough process then it makes sense but the first code on the file may not be correct,  
 
 - you are punished with the dead line passed. May you continue faster?
+=>ok!
 
 
 
