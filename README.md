@@ -3,6 +3,8 @@
 
 
 Commentary for the required steps
+1. we compiled the programs and understand what they do,how they function and operate.
+
 
 2. when netserv. is running it shows this client is connected message, 
 while netclient shows waiting state.
@@ -11,6 +13,12 @@ goes well, the server accepts the connection. Upon acceptance, the server gets a
 
 The client in socket programming must know IP address of Server as it has to use that IP address in order to initialize the socket class constructor.
  That is how the client requests a connection to the server.
+ 
+
+3. when we run ifconfig command it shows the ip address,mask,inet address,broadcast where we are working on our computer.
+
+
+4. if we gave our computer addres to the client then the server and the client found on the same host so they communicate quikly.
 
 5. To create the server socket, the endPoint object can listen for incoming connections on any IP address but the port number must be specified. 
 Once the socket is created, the server can accept incoming connections and communicate with clients. Hence, client is connected as on step 2
@@ -36,8 +44,7 @@ Hello Tsadiku. Thank you for your trail and go on doing. However,
 
 - you are punished with the dead line passed. May you continue faster?
 
-=>in the last weak  because of project proposal we are so busy if it is possible and we will
-gate additional time we will try our best but still we try it and commit each day effort on the file
+
 
 
 
